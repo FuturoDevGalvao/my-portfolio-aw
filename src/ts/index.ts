@@ -1,23 +1,6 @@
 import Repository from "./Repository.js";
 import { saveRepositoriesInLocalStorage } from "./api.js";
 
-const descriptionOfProjects: {
-  [key: string]: string;
-} = {
-  "calculadora-de-notas-aw":
-    "Projeto web que consiste em um calculadora de médias aritméticas e ponderadas. Considera uma média mínima de 60 para informe da situação do aluno.",
-  "conversor-de-moedas-aw":
-    "Projeto web que consiste em um conversor de moedas, beseado na taxa de câmbio atual das mesmas. Obtém essas taxas dinamicamente, a partir da api <a href='https://docs.awesomeapi.com.br/api-de-moedas' target='_blank'>awesomeapi</a>",
-  "imc-calculator-aw":
-    "Projeto web que consiste em uma calculadora de índice de massa corpórea (IMC). Faz o cálculo baseado no peso e na altura do usuário, e ainda indica sua classificação, baseada no resultado do cálculo",
-  "snake-game":
-    "Projeto web que consiste no clássico jogo da cobrinha. Todo o jogo é construído com estilo moderno, mas sem perder a essência nostálgica do game.",
-  "tasklist-aw":
-    "Projeto web que consiste em um organizador de tarefas, semelhante a uma todolist. Ele permite gerenciar terafas de maneira intuitiva, e também conta com um sistema de filtros.",
-  "tic-tac-aw":
-    "Projeto web que consiste no clássico jogo da velha. Todo o jogo é construído com estilo moderno, contanto com tooltips, animações e muito mais. Mas tudo isso sem perder a essência nostálgica do game.",
-};
-
 const localStorageIsEmpty = (): boolean => {
   return localStorage.length === 0;
 };
@@ -51,7 +34,7 @@ const createRepositoriesDOM = (): void => {
           </div>
           <div class="body-project">
             <div class="description">
-              ${descriptionOfProjects[repos.getName()]}
+              ${repos.getDescription()}
             </div>
           </div>
         </div>`
@@ -124,21 +107,27 @@ const showPreviewOfRepositoryClicked = (repository: Repository) => {
 
   projectPreview.classList.remove("project-preview-empty");
 
-  const nameOfprojectInProjectPreview = projectPreview
+  const nameOfprojectInProjectPreview: HTMLElement = projectPreview
     .querySelector(".header-project-preview")
     .querySelector("#name");
 
-  const descriptionOfProjectInProjectPreview = projectPreview
+  const descriptionOfProjectInProjectPreview: HTMLElement = projectPreview
     .querySelector(".body-project-preview")
     .querySelector("#description");
 
-  const lenguagesOfProjectInProjectPreview = projectPreview
+  const lenguagesOfProjectInProjectPreview: HTMLElement = projectPreview
     .querySelector(".body-project-preview")
     .querySelector("#lenguages");
 
-  const linksOfProjectInProjectPreview = projectPreview
+  const linksOfProjectInProjectPreview: HTMLElement = projectPreview
     .querySelector(".body-project-preview")
     .querySelector(".links");
+
+  const urlLiveInProjectPreview: any =
+    linksOfProjectInProjectPreview.querySelector("#url-live");
+
+  const urlRepositoryInProjectPreview: any =
+    linksOfProjectInProjectPreview.querySelector("#url-repository");
 
   nameOfprojectInProjectPreview.textContent = repository.getName();
   descriptionOfProjectInProjectPreview.innerHTML =
@@ -150,7 +139,21 @@ const showPreviewOfRepositoryClicked = (repository: Repository) => {
     .map((l) => `<li><img src="${getSrcOfImgBasedOfLenguage(l)}" /></li>`)
     .forEach((l) => (lenguagesOfProjectInProjectPreview.innerHTML += l));
 
+  urlLiveInProjectPreview.href =
+    repository.getUrlLive() === "" ? "#" : repository.getUrlLive();
+  urlRepositoryInProjectPreview.href = repository.getUrlRepository();
+
   projectPreview.classList.remove("project-preview-empty");
+};
+
+const showBtnBackToTop = () => {
+  const btnBackToTop: HTMLElement = document.getElementById("btn-back-to-top");
+
+  if (window.scrollY > 500) {
+    btnBackToTop.classList.add("show-btn-back-to-top");
+  } else {
+    btnBackToTop.classList.remove("show-btn-back-to-top");
+  }
 };
 
 window.onload = async () => {
@@ -164,7 +167,10 @@ window.onload = async () => {
     btnToAboutMe.classList.add("btn-to-about-me-floating");
   });
 
+  window.addEventListener("scroll", showBtnBackToTop);
+
   if (localStorageIsEmpty()) await saveRepositoriesInLocalStorage();
 
+  showBtnBackToTop();
   createRepositoriesDOM();
 };
