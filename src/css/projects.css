@@ -1,0 +1,228 @@
+@import url("./variables.css");
+
+#projects-contain {
+  display: flex;
+  flex-direction: column;
+  height: 102vh !important;
+}
+
+.projects {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.projects-list-contain {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.projects-list {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  padding: 40px 0;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  overflow: auto;
+  /*   background-color: var(--hover);
+ */
+}
+
+.project {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  border-left: 2px solid var(--font-sec);
+  padding: 20px;
+  text-align: justify;
+  cursor: pointer;
+}
+
+.project:hover {
+  border-left: 2px dashed var(--sec);
+}
+
+.project:hover > .dot {
+  color: var(--sec);
+}
+
+.header-project {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.body-project {
+  color: var(--font-sec);
+  font-size: 0.9rem;
+}
+
+.body-project a,
+#description a {
+  background-color: #a6a5a593;
+  text-decoration: none;
+  padding: 0 4px;
+  color: var(--font-pri);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.body-project a:hover,
+#description a:hover {
+  text-decoration: underline wavy;
+}
+
+.dot {
+  left: -9px;
+  top: -10px;
+  position: absolute;
+  color: var(--font-sec);
+  font-size: 1rem;
+}
+
+.project-preview-contain {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-preview {
+  position: relative;
+  width: 70%;
+  box-shadow: 0 0 0 2px var(--font-sec), 8px 8px 0 0 var(--font-sec);
+  transition: 0.3s;
+  background-color: var(--card);
+}
+
+.project-preview:hover {
+  box-shadow: 0 0 0 2px var(--sec), 8px 8px 0 0 var(--sec);
+  transition: 0.3s;
+}
+
+.project-preview-empty::after {
+  content: "VEJA O PREVIEW DO PROJETO AQUI";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  background: rgb(25, 26, 26, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(40, 42, 54, 0.3);
+}
+
+.header-project-preview {
+  height: 200px;
+  display: flex;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(5, 5, 5, 0.8), rgba(20, 20, 20, 0.8)),
+    url("../../assets/galvao.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.body-project-preview {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  gap: 30px;
+}
+
+#title {
+  text-transform: uppercase;
+}
+
+#description {
+  color: var(--font-sec);
+}
+
+#lenguages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: var(--font-sec);
+}
+
+#lenguages li {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#lenguages li img {
+  height: 100%;
+  width: 100%;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.links a {
+  width: 50%;
+  color: var(--font-sec);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 8px;
+  border: 2px solid var(--font-sec);
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.links a:hover {
+  color: var(--font-pri);
+  background-color: var(--sec);
+  border-color: transparent;
+  transition: 0.3s;
+}
+
+.links a i {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 700px) {
+  #projects-contain {
+    height: auto !important;
+  }
+  .projects {
+    flex-direction: column;
+  }
+  .projects-list-contain,
+  .project-preview {
+    width: 100%;
+  }
+  .projects-list {
+    width: 90%;
+  }
+}

@@ -1,0 +1,72 @@
+@import url("variables.css");
+
+#skills-contain {
+  display: flex;
+  flex-direction: column;
+  height: 102vh !important;
+}
+
+.skills {
+  flex: 1 !important;
+  height: 100% !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  overflow: hidden;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.lenguages-logo,
+.thecnology-logo,
+.frameworks-logo {
+  overflow: hidden;
+  padding: 10px 0;
+  white-space: nowrap;
+  position: relative;
+}
+
+.lenguages-logo:before,
+.lenguages-logo:after,
+.thecnology-logo::before,
+.thecnology-logo::after,
+.frameworks-logo::before,
+.frameworks-logo::after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.lenguages-logo:hover .lenguages-logo-slide,
+.thecnology-logo:hover .thecnology-logo-slide,
+.frameworks-logo:hover .frameworks-logo-slide {
+  animation-play-state: paused;
+}
+
+.lenguages-logo-slide,
+.thecnology-logo-slide,
+.frameworks-logo-slide {
+  display: inline-block;
+  animation: 120s slide infinite linear;
+}
+
+.lenguages-logo-slide img,
+.thecnology-logo-slide img,
+.frameworks-logo-slide img {
+  height: 80px;
+  width: 80px;
+  margin: 0 40px;
+}

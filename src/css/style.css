@@ -1,0 +1,170 @@
+@import url("./variables.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  height: 100%;
+  --color: rgba(114, 114, 114, 0.3);
+  background-color: #191a1a;
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px;
+  color: var(--font-pri);
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  --color: rgba(114, 114, 114, 0.3);
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px;
+  /* From https://css.glass */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.8px);
+  -webkit-backdrop-filter: blur(9.8px);
+  border-bottom: 1px solid rgba(40, 42, 54, 0.3);
+}
+
+#logo {
+  font-size: max(1.5rem, 1.5vw);
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--font-pri);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#logo:hover {
+  text-decoration: underline wavy;
+  text-decoration-color: var(--font-pri);
+}
+
+header nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: var(--font-sec);
+}
+
+header nav ul li a:hover {
+  color: var(--font-pri);
+  text-decoration: underline wavy;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+  border: 1px solid red;
+
+  padding-top: 60px;
+}
+
+.header-section {
+  /*   border: 1px dashed red;
+ */
+  text-align: center;
+  font-size: max(1rem, 1.4vw);
+}
+
+.header-section-content {
+  position: relative;
+  display: inline;
+}
+
+.header-section-content::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  bottom: 0px;
+  height: 4px;
+  width: 15px;
+  background-color: var(--cli-green);
+  animation: piscar 1.5s infinite step-end;
+}
+
+@keyframes piscar {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  section {
+  }
+}

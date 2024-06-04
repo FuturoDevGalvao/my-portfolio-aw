@@ -1,0 +1,90 @@
+@import url("./variables.css");
+
+#presentation-contain {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 0 !important;
+}
+
+.presentation {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.social-medias {
+  display: flex;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social-medias li {
+  height: auto;
+  width: auto;
+}
+
+.social-medias li a {
+  text-decoration: none;
+  color: var(--font-pri);
+}
+
+.social-medias li a i {
+  font-size: 2.5rem;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.social-medias li i:hover {
+  transform: translateY(-15px);
+  transition: 0.3s;
+  color: var(--sec);
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.welcome h1 {
+  font-size: max(3.5rem, 3.5vw);
+  line-height: 0.9;
+}
+
+.welcome p {
+  color: var(--font-sec);
+}
+
+#btn-to-about-me {
+  position: absolute;
+  font-size: 1.8rem;
+  color: var(--font-pri);
+  bottom: 80px;
+  transition: 0.3s !important;
+}
+
+.btn-to-about-me-floating {
+  animation: floating 1.5s infinite linear;
+  transition: 0.3s !important;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
