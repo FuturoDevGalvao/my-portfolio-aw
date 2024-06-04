@@ -1,7 +1,9 @@
 export default class Repository {
-    constructor(name, url, dateOfCreation, lenguages, size) {
+    constructor(name, description, urlRepository, urlLive, dateOfCreation, lenguages, size) {
         this.name = name;
-        this.url = url;
+        this.description = description;
+        this.urlRepository = urlRepository;
+        this.urlLive = urlLive;
         this.dateOfCreation = new Date(dateOfCreation);
         this.lenguages = lenguages;
         this.size = size;
@@ -9,8 +11,14 @@ export default class Repository {
     getName() {
         return this.name;
     }
-    getUrl() {
-        return this.url;
+    getDescription() {
+        return this.description;
+    }
+    getUrlRepository() {
+        return this.urlRepository;
+    }
+    getUrlLive() {
+        return this.urlLive;
     }
     getDateOfCreation() {
         return this.dateOfCreation.toLocaleString("pt-br", {});
@@ -24,13 +32,15 @@ export default class Repository {
     toJSON() {
         return {
             name: this.name,
-            url: this.url,
+            description: this.description,
+            urlRepository: this.urlRepository,
+            urlLive: this.urlLive,
             dateOfCreation: this.dateOfCreation,
             lenguages: this.lenguages,
             size: this.size,
         };
     }
     static fromJSON(object) {
-        return new Repository(object.name, object.url, object.dateOfCreation, object.lenguages, object.size);
+        return new Repository(object.name, object.description, object.urlRepository, object.urlLive, object.dateOfCreation, object.lenguages, object.size);
     }
 }
