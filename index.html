@@ -24,16 +24,16 @@
       <nav>
         <ul>
           <li>
-            <a href="#about-me-contain">about me</a>
+            <a href="#about-me-contain">sobre mim</a>
           </li>
           <li>
-            <a href="#skills-contain">skills</a>
+            <a href="#skills-contain">habilidades</a>
           </li>
           <li>
-            <a href="#projects-contain">projects</a>
+            <a href="#projects-contain">projetos</a>
           </li>
           <li>
-            <a href="#contacts-contain">contacts</a>
+            <a href="#contacts-contain">contatos</a>
           </li>
         </ul>
       </nav>
@@ -43,26 +43,26 @@
       <div class="presentation">
         <ul class="social-medias">
           <li>
-            <a href="">
+            <a href="https://github.com/FuturoDevGalvao" target="_blank">
               <i class="fa-brands fa-github"></i>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="https://www.linkedin.com/in/galvao-dev/" target="_blank">
               <i class="fa-brands fa-linkedin"></i>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="#" id="cv">
               <i class="fa-solid fa-file"></i>
             </a>
           </li>
         </ul>
 
         <div class="welcome">
-          <p>Hello, I’m Gabriel Galvão</p>
+          <p>Olá, eu sou o Gabriel Galvão!</p>
           <h1>galvao.dev</h1>
-          <p>fullstack web development</p>
+          <p>desenvolvedor web fullstack</p>
         </div>
       </div>
 
@@ -81,17 +81,17 @@
       <div class="header-section-content">
         <span style="color: var(--cli-green)">galvao.dev@penguin:~$</span>
         <span style="color: var(--cli-yellow)">cd</span>
-        <span style="font-weight: 600">"about me"</span>
+        <span style="font-weight: 600">"sobre mim"</span>
       </div>
     </div>
 
     <div class="about-me">
-      <div class="me">
+      <div class="me load-hidden">
         <div class="developer">
           <img src="./assets/galvao.jpeg" alt="eu" width="300" height="300" />
         </div>
       </div>
-      <div class="aboute">
+      <div class="aboute load-hidden">
         <h1>Um pouco mais sobre mim 👇</h1>
         <ul>
           <li>
@@ -111,7 +111,7 @@
             Buscando uma oportunidade para atuar como desenvolvedor
           </li>
         </ul>
-        <a id="btn-to-contact" href="#contacts-contain"> contato </a>
+        <a id="btn-to-contact" href="#contacts-contain"> entrar em contato </a>
       </div>
     </div>
   </section>
@@ -121,11 +121,11 @@
       <div class="header-section-content">
         <span style="color: var(--cli-green)">galvao.dev@penguin:~$</span>
         <span style="color: var(--cli-yellow)">cd</span>
-        <span style="font-weight: 600">skills</span>
+        <span style="font-weight: 600">habilidades</span>
       </div>
     </div>
 
-    <div class="skills">
+    <div class="skills load-hidden">
       <div class="lenguages-logo">
         <div class="lenguages-logo-slide">
           <img src="./assets/devicon--html5.svg" alt="" />
@@ -154,6 +154,8 @@
           <img src="./assets/devicon--mysql-wordmark.svg" alt="" />
 
           <img src="./assets/devicon--vscode.svg" alt="" />
+
+          <img src="./assets/devicon--linux.svg" alt="" />
         </div>
       </div>
       <div class="frameworks-logo">
@@ -162,7 +164,7 @@
 
           <img src="./assets/devicon--express.svg" />
 
-          <img src="./assets/logos--jquery.svg" alt="" />
+          <img src="./assets/skill-icons--jquery.svg" alt="" />
 
           <img src="./assets/devicon--laravel-wordmark.svg" alt="" />
 
@@ -179,11 +181,11 @@
       <div class="header-section-content">
         <span style="color: var(--cli-green)">galvao.dev@penguin:~$</span>
         <span style="color: var(--cli-yellow)">cd</span>
-        <span style="font-weight: 600">projects</span>
+        <span style="font-weight: 600">projetos</span>
       </div>
     </div>
 
-    <div class="projects">
+    <div class="projects load-hidden">
       <div class="projects-list-contain">
         <div class="projects-list">
           <div class="project">
@@ -253,7 +255,7 @@
           </div>
         </div>
       </div>
-      <div class="project-preview-contain">
+      <div class="project-preview-contain load-hidden">
         <div class="project-preview project-preview-empty">
           <div class="header-project-preview">
             <h1 id="name">title of project</h1>
@@ -269,11 +271,11 @@
               <li>linguagens</li>
             </ul>
             <nav class="links">
-              <a href="">
+              <a href="" id="url-live" target="_blank">
                 <i class="fa-solid fa-link"></i>
                 live
               </a>
-              <a href="">
+              <a href="" id="url-repository" target="_blank">
                 <i class="fa-brands fa-github"></i>
                 github
               </a>
@@ -289,13 +291,17 @@
       <div class="header-section-content">
         <span style="color: var(--cli-green)">galvao.dev@penguin:~$</span>
         <span style="color: var(--cli-yellow)">cd</span>
-        <span style="font-weight: 600">contacts</span>
+        <span style="font-weight: 600">contatos</span>
       </div>
     </div>
 
-    <div class="contacts">
+    <div class="contacts load-hidden">
       <div class="number-contain">
-        <a href="#" class="number-icon">
+        <a
+          href="https://wa.me/5584996191005"
+          target="_blank"
+          class="number-icon"
+        >
           <img src="./assets/ic--baseline-whatsapp.svg" alt="" />
         </a>
         <div class="number-content">
@@ -304,7 +310,7 @@
         </div>
       </div>
       <div class="email-contain">
-        <a href="#" class="email-icon">
+        <a href="mailto:biel3628@gmail.com" target="_blank" class="email-icon">
           <i class="fa-solid fa-circle dot"></i>
           <img src="./assets/line-md--email.svg" alt="" />
         </a>
@@ -313,7 +319,11 @@
         </div>
       </div>
       <div class="linkedin-contain">
-        <a href="#" class="linkedin-icon">
+        <a
+          href="https://www.linkedin.com/in/galvao-dev/"
+          target="_blank"
+          class="linkedin-icon"
+        >
           <img src="./assets/ri--linkedin-fill.svg" alt="" />
         </a>
         <div class="linkedin-content">
@@ -323,7 +333,7 @@
       </div>
 
       <div class="instagram-contain">
-        <a href="#" class="instagram-icon">
+        <a href="https://www.instagram.com/biel.galvao/" class="instagram-icon">
           <i class="fa-solid fa-circle dot"></i>
           <img src="./assets/line-md--instagram.svg" alt="" />
         </a>
@@ -334,9 +344,12 @@
     </div>
   </section>
 
-  <footer>copyright © todos os direitos reservados</footer>
-
-  <i class="fa-solid fa-circle-up" id="btn-back-to-top"></i>
+  <footer>
+    <span>© 2024 | Gabriel Galvão</span>
+  </footer>
+  <a href="#presentation-contain">
+    <i class="fa-solid fa-circle-chevron-up" id="btn-back-to-top"></i>
+  </a>
   <script>
     var copy = document.querySelector(".lenguages-logo-slide").cloneNode(true);
     document.querySelector(".lenguages-logo").appendChild(copy);
@@ -363,5 +376,7 @@
     src="https://kit.fontawesome.com/638bd1bffb.js"
     crossorigin="anonymous"
   ></script>
+  <script src="https://unpkg.com/scrollreveal "></script>
   <script type="module" src="./dist/index.js"></script>
+  <script src="./dist/reveal.js" defer></script>
 </html>
