@@ -70,3 +70,12 @@
   width: 80px;
   margin: 0 40px;
 }
+
+@media screen and (max-width: 750px) {
+  .lenguages-logo-slide img,
+  .thecnology-logo-slide img,
+  .frameworks-logo-slide img {
+    height: 50px;
+    width: 50px;
+  }
+}

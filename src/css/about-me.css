@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   height: 102vh !important;
+  background-color: var(--card);
 }
 
 .about-me {
@@ -11,32 +12,74 @@
   width: 100%;
   display: flex;
   align-items: center;
+  /*   border: 1px dashed red;
+ */
 }
 
 .aboute {
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   flex: 1;
   height: 100%;
-  padding: 0 80px;
+  padding: 0 40px;
   text-align: justify;
-  /*   border: 1px dashed yellow;
+}
+
+.aboute h1 {
+  font-size: max(1.2rem, 2vw);
+}
+
+.about-me ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  gap: 10px;
+  list-style: none;
+  color: var(--font-sec);
+  /*   border: 1px dashed red;
  */
+}
+
+.about-me ul li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: max(0.8rem, 1vw);
+  gap: 10px;
+  /*   border: 1px dashed green;
+ */
+}
+
+.about-me ul li img {
+  height: 32px;
+  width: 32px;
 }
 
 .me {
   height: 100%;
-  width: 40%;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /*   border: 1px dashed yellow;
- */
+}
+
+.developer {
+  background-image: url("../../assets/galvao.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
 }
 
 .me img {
+  display: none;
   height: 500px;
   width: 300px;
   box-shadow: 0 0 0 2px var(--sec), 8px 8px 0 0 var(--sec);
@@ -44,7 +87,8 @@
 
 #btn-to-contact {
   position: relative;
-  width: 30%;
+  width: 200px;
+  min-width: 35%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,6 +104,7 @@
   color: var(--font-sec);
   border: 1px solid var(--font-sec);
   transition: 0.3s;
+  z-index: 2;
 }
 
 #btn-to-contact::after {
@@ -90,7 +135,7 @@
   border-color: transparent;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 780px) {
   #about-me-contain {
     padding-top: 65px;
     height: auto !important;
@@ -102,8 +147,15 @@
 
   .aboute,
   .me {
-    padding: 0 30px;
+    width: 100%;
+    padding: 0 40px;
   }
+
+  .developer {
+    height: 250px;
+    width: 250px;
+  }
+
   .aboute {
     padding-top: 40px;
   }

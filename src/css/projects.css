@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   height: 102vh !important;
+  background-color: var(--card);
 }
 
 .projects {
@@ -59,6 +60,10 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.header-project h2 {
+  font-size: max(1rem, 1.6vw);
 }
 
 .body-project {
@@ -130,11 +135,9 @@
 .header-project-preview {
   height: 200px;
   display: flex;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(5, 5, 5, 0.8), rgba(20, 20, 20, 0.8)),
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
     url("../../assets/galvao.jpeg");
   background-position: center;
   background-repeat: no-repeat;
@@ -142,19 +145,21 @@
 }
 
 .body-project-preview {
-  padding: 30px;
+  padding: 20px 30px;
   display: flex;
   flex-direction: column;
   text-align: justify;
   gap: 30px;
 }
 
-#title {
+#name {
   text-transform: uppercase;
+  font-size: max(1.1rem, 1vw);
 }
 
 #description {
   color: var(--font-sec);
+  font-size: max(0.9rem, 1vw);
 }
 
 #lenguages {
@@ -211,7 +216,7 @@
   font-size: 1.5rem;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   #projects-contain {
     height: auto !important;
   }
@@ -222,7 +227,16 @@
   .project-preview {
     width: 100%;
   }
+  .projects-list-contain {
+    height: 80vh;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
   .projects-list {
-    width: 90%;
+    padding: 0 20px;
+    width: 100%;
+  }
+  .project {
+    width: 100%;
   }
 }

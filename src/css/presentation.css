@@ -56,11 +56,12 @@
 }
 
 .welcome h1 {
-  font-size: max(3.5rem, 3.5vw);
+  font-size: max(3rem, 4vw);
   line-height: 0.9;
 }
 
 .welcome p {
+  font-size: max(0.9rem, 1vw);
   color: var(--font-sec);
 }
 
@@ -86,5 +87,11 @@
   }
   100% {
     transform: translateY(-10px);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .social-medias li a i {
+    font-size: 2rem;
   }
 }

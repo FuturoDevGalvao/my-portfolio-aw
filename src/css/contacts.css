@@ -1,0 +1,148 @@
+@import url("variables.css");
+
+#contacts-contain {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /*   border: 1px dashed aqua;
+ */
+}
+
+.contacts {
+  flex: 1 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /*   border: 1px solid green;
+ */
+}
+
+.number-contain,
+.email-contain,
+.linkedin-contain,
+.instagram-contain {
+  display: flex;
+  width: 40%;
+  height: 100px;
+}
+
+.email-contain,
+.instagram-contain {
+  flex-direction: row-reverse;
+}
+
+.number-icon,
+.email-icon,
+.linkedin-icon,
+.instagram-icon,
+.number-content,
+.email-content,
+.linkedin-content,
+.instagram-content {
+  width: 50%;
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.number-icon,
+.email-icon,
+.linkedin-icon,
+.instagram-icon {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: var(--card);
+  border: 2px solid var(--font-sec);
+  transition: 0.3s !important;
+}
+
+.instagram-icon {
+  border-bottom-right-radius: 5px;
+}
+
+.number-icon:hover {
+  background-color: var(--sec);
+}
+
+.instagram-icon:hover {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+  transition: 0.3s !important;
+}
+
+.linkedin-icon:hover {
+  background-color: #285aeb;
+}
+
+.email-icon:hover {
+  background-color: #d65143;
+}
+
+.number-icon img,
+.email-icon img,
+.linkedin-icon img,
+.instagram-icon img {
+  width: 50px;
+  height: 50px;
+}
+
+.number-content,
+.email-content,
+.linkedin-content,
+.instagram-content {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.number-content p,
+.email-content p,
+.linkedin-content p,
+.instagram-content p {
+  background-color: #a6a5a593;
+  text-decoration: none;
+  padding: 0 4px;
+  color: var(--font-pri);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.number-content,
+.instagram-content,
+.linkedin-content {
+  position: relative;
+}
+
+.email-icon,
+.instagram-icon {
+  position: relative;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 2px solid var(--font-sec);
+}
+
+@media screen and (max-width: 900px) {
+  .number-contain,
+  .email-contain,
+  .linkedin-contain,
+  .instagram-contain {
+    width: 90%;
+  }
+
+  .number-icon img,
+  .email-icon img,
+  .linkedin-icon img,
+  .instagram-icon img {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -10,6 +10,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html .load-hidden {
+  visibility: hidden;
+}
+
 body {
   height: 100vh;
   width: 100%;
@@ -54,37 +58,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  --color: rgba(114, 114, 114, 0.3);
-  background-image: linear-gradient(
-      0deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent
-    );
-  background-size: 55px 55px;
   /* From https://css.glass */
+  background: rgba(25, 26, 26, 0.65);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(9.8px);
-  -webkit-backdrop-filter: blur(9.8px);
-  border-bottom: 1px solid rgba(40, 42, 54, 0.3);
+  backdrop-filter: blur(10.2px);
+  -webkit-backdrop-filter: blur(10.2px);
+  border: 1px solid rgba(25, 26, 26, 0.3);
 }
 
 #logo {
@@ -122,10 +101,10 @@ header nav ul li a:hover {
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  border: 1px solid red;
-
+  /*   border: 1px solid red;
+ */
   padding-top: 60px;
 }
 
@@ -152,6 +131,44 @@ section {
   animation: piscar 1.5s infinite step-end;
 }
 
+#btn-back-to-top {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 50px;
+  position: fixed;
+  bottom: -80px;
+  right: 20px;
+  background-color: var(--font-pri);
+  cursor: pointer;
+  opacity: 0;
+  color: var(--sec);
+  transition: 0.3s all;
+}
+
+#btn-back-to-top:hover {
+  transform: translateY(-5px);
+  color: #41ed6c;
+  transition: 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.show-btn-back-to-top {
+  bottom: 20px !important;
+  opacity: 1 !important;
+}
+
+footer {
+  padding: 40px 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: max(1rem, 1vw);
+  color: var(--font-sec);
+}
+
 @keyframes piscar {
   0% {
     opacity: 0;
@@ -165,6 +182,14 @@ section {
 }
 
 @media screen and (max-width: 700px) {
-  section {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 10px;
+    justify-content: center;
+  }
+
+  header {
+    font-size: 0.8rem;
   }
 }
