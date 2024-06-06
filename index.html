@@ -15,6 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Portfólio - galvao.dev</title>
   </head>
   <body>
@@ -54,7 +55,7 @@
           </li>
           <li>
             <a href="#" id="cv">
-              <i class="fa-solid fa-file"></i>
+              <i class="fa-solid fa-file-arrow-down"></i>
             </a>
           </li>
         </ul>
@@ -66,11 +67,7 @@
         </div>
       </div>
 
-      <a
-        id="btn-to-about-me"
-        class="btn-to-about-me-floating"
-        href="#about-me-contain"
-      >
+      <a id="btn-to-about-me" class="btn-to-about-me-floating" href="#about-me-contain">
         <i class="fa-solid fa-arrow-down-long"></i>
       </a>
     </section>
@@ -111,7 +108,13 @@
             Buscando uma oportunidade para atuar como desenvolvedor
           </li>
         </ul>
-        <a id="btn-to-contact" href="#contacts-contain"> entrar em contato </a>
+        <div class="contain-buttons">
+          <a id="btn-to-contact" href="#contacts-contain"> entrar em contato </a>
+          <a id="btn-download-cv" href="./assets/skill-icons--jquery.svg">
+            baixar cv
+            <i class="fa-solid fa-file-arrow-down"></i>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -195,9 +198,8 @@
             </div>
             <div class="body-project">
               <div class="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident ipsum, delectus expedita minima aut quis veniam illo
-                quod soluta nostrum
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ipsum, delectus expedita minima aut
+                quis veniam illo quod soluta nostrum
               </div>
             </div>
           </div>
@@ -208,9 +210,8 @@
             </div>
             <div class="body-project">
               <div class="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident ipsum, delectus expedita minima aut quis veniam illo
-                quod soluta nostrum
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ipsum, delectus expedita minima aut
+                quis veniam illo quod soluta nostrum
               </div>
             </div>
           </div>
@@ -221,9 +222,8 @@
             </div>
             <div class="body-project">
               <div class="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident ipsum, delectus expedita minima aut quis veniam illo
-                quod soluta nostrum
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ipsum, delectus expedita minima aut
+                quis veniam illo quod soluta nostrum
               </div>
             </div>
           </div>
@@ -234,9 +234,8 @@
             </div>
             <div class="body-project">
               <div class="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident ipsum, delectus expedita minima aut quis veniam illo
-                quod soluta nostrum
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ipsum, delectus expedita minima aut
+                quis veniam illo quod soluta nostrum
               </div>
             </div>
           </div>
@@ -247,9 +246,8 @@
             </div>
             <div class="body-project">
               <div class="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident ipsum, delectus expedita minima aut quis veniam illo
-                quod soluta nostrum
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ipsum, delectus expedita minima aut
+                quis veniam illo quod soluta nostrum
               </div>
             </div>
           </div>
@@ -262,8 +260,8 @@
           </div>
           <div class="body-project-preview">
             <p id="description">
-              description: Lorem ipsum dolor sit amet consectetur, adipisicing
-              elit. Quia placeat impedit magnam nesciunt asperiores cumque
+              description: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia placeat impedit magnam
+              nesciunt asperiores cumque
             </p>
             <ul id="lenguages">
               <li>linguagens</li>
@@ -297,11 +295,7 @@
 
     <div class="contacts load-hidden">
       <div class="number-contain">
-        <a
-          href="https://wa.me/5584996191005"
-          target="_blank"
-          class="number-icon"
-        >
+        <a href="https://wa.me/5584996191005" target="_blank" class="number-icon">
           <img src="./assets/ic--baseline-whatsapp.svg" alt="" />
         </a>
         <div class="number-content">
@@ -319,11 +313,7 @@
         </div>
       </div>
       <div class="linkedin-contain">
-        <a
-          href="https://www.linkedin.com/in/galvao-dev/"
-          target="_blank"
-          class="linkedin-icon"
-        >
+        <a href="https://www.linkedin.com/in/galvao-dev/" target="_blank" class="linkedin-icon">
           <img src="./assets/ri--linkedin-fill.svg" alt="" />
         </a>
         <div class="linkedin-content">
@@ -350,32 +340,8 @@
   <a href="#presentation-contain">
     <i class="fa-solid fa-circle-chevron-up" id="btn-back-to-top"></i>
   </a>
-  <script>
-    var copy = document.querySelector(".lenguages-logo-slide").cloneNode(true);
-    document.querySelector(".lenguages-logo").appendChild(copy);
-    document.querySelector(".lenguages-logo").appendChild(copy);
-    document.querySelector(".lenguages-logo").appendChild(copy);
-    document.querySelector(".lenguages-logo").appendChild(copy);
-    document.querySelector(".lenguages-logo").appendChild(copy);
-    document.querySelector(".lenguages-logo").appendChild(copy);
-
-    copy = document.querySelector(".frameworks-logo-slide").cloneNode(true);
-    document.querySelector(".frameworks-logo").appendChild(copy);
-    document.querySelector(".frameworks-logo").appendChild(copy);
-    document.querySelector(".frameworks-logo").appendChild(copy);
-    document.querySelector(".frameworks-logo").appendChild(copy);
-
-    copy = document.querySelector(".thecnology-logo-slide").cloneNode(true);
-    document.querySelector(".thecnology-logo").appendChild(copy);
-    document.querySelector(".thecnology-logo").appendChild(copy);
-    document.querySelector(".thecnology-logo").appendChild(copy);
-    document.querySelector(".thecnology-logo").appendChild(copy);
-  </script>
-
-  <script
-    src="https://kit.fontawesome.com/638bd1bffb.js"
-    crossorigin="anonymous"
-  ></script>
+  <script src="./dist/carrosel.js"></script>
+  <script src="https://kit.fontawesome.com/638bd1bffb.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/scrollreveal "></script>
   <script type="module" src="./dist/index.js"></script>
   <script src="./dist/reveal.js" defer></script>
