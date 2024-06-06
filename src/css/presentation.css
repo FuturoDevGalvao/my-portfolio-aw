@@ -41,6 +41,8 @@
   height: 100%;
   width: 100%;
   transition: 0.3s;
+  animation: flipInX;
+  animation-duration: 1.4s;
 }
 
 .social-medias li i:hover {
@@ -53,6 +55,8 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  animation: fadeInUp;
+  animation-duration: 1.5s;
 }
 
 .welcome h1 {
