@@ -1,8 +1,18 @@
 "use strict";
-// @ts-ignore
 window.reveal = ScrollReveal({ reset: true });
-// @ts-ignore
-reveal.reveal(".presentation", {
-    duration: 1000,
-    distance: "90px",
-});
+
+const elementsToRevealSlowly = [".skills", ".aboute", ".projects", ".contacts"];
+const revealSlowlyConfig = {
+  duration: 1000,
+  distance: "90px",
+  delay: 400,
+};
+elementsToRevealSlowly.forEach((e) => reveal.reveal(e, revealSlowlyConfig));
+
+const elemetsToRevealFast = [".me", ".project-preview-contain"];
+const revealFastConfig = {
+  duration: 1000,
+  distance: "90px",
+  delay: 600,
+};
+elemetsToRevealFast.forEach((e) => reveal.reveal(e, revealFastConfig));
