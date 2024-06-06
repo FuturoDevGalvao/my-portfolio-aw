@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import Repository from "./Repository.js";
-import { descriptionOfProjects } from "./projects-more-data.js";
+import { dataOfProjects } from "./data.js";
 const getRepositoriesFromGitHub = () => __awaiter(void 0, void 0, void 0, function* () {
     const URL = "https://api.github.com/users/FuturoDevGalvao/repos";
     try {
@@ -49,22 +49,19 @@ const filterRepositories = (repositories) => {
 };
 const createRepository = (repository) => __awaiter(void 0, void 0, void 0, function* () {
     const lenguagesOfRepository = yield getLenguagesOfRepositories(repository);
-    const description = descriptionOfProjects[repository.name]
+    const description = dataOfProjects[repository.name]
         .description;
-    const urlLive = descriptionOfProjects[repository.name]
-        .urlLive;
+    const urlLive = dataOfProjects[repository.name].urlLive;
     return new Repository(repository.name, description, repository.html_url, urlLive, repository.created_at, lenguagesOfRepository, repository.size);
 });
 export const saveRepositoriesInLocalStorage = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield getRepositoriesFromGitHub();
-        console.log(data);
         const dataFiltred = filterRepositories(data);
         // Usando map para criar as promessas de criação dos repositórios
         const repositoryPromises = dataFiltred.map((df) => __awaiter(void 0, void 0, void 0, function* () { return yield createRepository(df); }));
         // Usando Promise.all para aguardar todas as promessas serem resolvidas
         const repositories = yield Promise.all(repositoryPromises);
-        console.log(repositories);
         localStorage.clear();
         localStorage.setItem("repositories", JSON.stringify(repositories.map((repo) => repo.toJSON())));
     }

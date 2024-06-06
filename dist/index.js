@@ -58,21 +58,17 @@ const addListenerInProjectDOMElement = () => {
         project.addEventListener("click", (event) => {
             var _a;
             const projectClicked = event.currentTarget;
-            const nameOfProject = (_a = projectClicked
-                .querySelector(".header-project")
-                .textContent) === null || _a === void 0 ? void 0 : _a.trim().slice(2);
+            const nameOfProject = (_a = projectClicked.querySelector(".header-project").textContent) === null || _a === void 0 ? void 0 : _a.trim().slice(2);
             const repository = getRepositoryFromName(nameOfProject);
             showPreviewOfRepositoryClicked(repository);
         });
     });
 };
-const getDescriptionOfProjectDOMElement = (nameOfRepository) => {
+const getDescriptionOfProjectDOM = (nameOfRepository) => {
     const projects = document.querySelectorAll(".project");
     return Array.from(projects)
         .find((p) => {
-        const nameOfProject = p
-            .querySelector(".header-project")
-            .querySelector("h2").textContent;
+        const nameOfProject = p.querySelector(".header-project").querySelector("h2").textContent;
         return nameOfProject.slice(2) === nameOfRepository;
     })
         .querySelector(".body-project").innerHTML;
@@ -85,12 +81,11 @@ const getSrcOfImgBasedOfLenguage = (lenguage) => {
     };
     return lenguages[lenguage];
 };
-const showPreviewOfRepositoryClicked = (repository) => {
+const getProjectPreviewElements = () => {
     const projectPreview = document.querySelector(".project-preview");
     projectPreview.classList.remove("project-preview-empty");
-    const nameOfprojectInProjectPreview = projectPreview
-        .querySelector(".header-project-preview")
-        .querySelector("#name");
+    const headerProjectPreview = projectPreview.querySelector(".header-project-preview");
+    const nameOfprojectInProjectPreview = headerProjectPreview.querySelector("#name");
     const descriptionOfProjectInProjectPreview = projectPreview
         .querySelector(".body-project-preview")
         .querySelector("#description");
@@ -102,18 +97,29 @@ const showPreviewOfRepositoryClicked = (repository) => {
         .querySelector(".links");
     const urlLiveInProjectPreview = linksOfProjectInProjectPreview.querySelector("#url-live");
     const urlRepositoryInProjectPreview = linksOfProjectInProjectPreview.querySelector("#url-repository");
+    return {
+        projectPreview,
+        headerProjectPreview,
+        nameOfprojectInProjectPreview,
+        descriptionOfProjectInProjectPreview,
+        lenguagesOfProjectInProjectPreview,
+        urlLiveInProjectPreview,
+        urlRepositoryInProjectPreview,
+    };
+};
+const showPreviewOfRepositoryClicked = (repository) => {
+    const { projectPreview, headerProjectPreview, nameOfprojectInProjectPreview, descriptionOfProjectInProjectPreview, lenguagesOfProjectInProjectPreview, urlLiveInProjectPreview, urlRepositoryInProjectPreview, } = getProjectPreviewElements();
     nameOfprojectInProjectPreview.textContent = repository.getName();
-    descriptionOfProjectInProjectPreview.innerHTML =
-        getDescriptionOfProjectDOMElement(repository.getName());
+    descriptionOfProjectInProjectPreview.innerHTML = getDescriptionOfProjectDOM(repository.getName());
     lenguagesOfProjectInProjectPreview.innerHTML = "";
     repository
         .getLenguages()
         .map((l) => `<li><img src="${getSrcOfImgBasedOfLenguage(l)}" /></li>`)
         .forEach((l) => (lenguagesOfProjectInProjectPreview.innerHTML += l));
-    urlLiveInProjectPreview.href =
-        repository.getUrlLive() === "" ? "#" : repository.getUrlLive();
+    urlLiveInProjectPreview.href = repository.getUrlLive() === "" ? "#" : repository.getUrlLive();
     urlRepositoryInProjectPreview.href = repository.getUrlRepository();
     projectPreview.classList.remove("project-preview-empty");
+    headerProjectPreview.style.backgroundImage = `linear-gradient(rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.8)), url("../../assets/${repository.getName()}.png")`;
 };
 const showBtnBackToTop = () => {
     const btnBackToTop = document.getElementById("btn-back-to-top");

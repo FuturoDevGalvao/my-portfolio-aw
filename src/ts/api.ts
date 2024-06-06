@@ -1,5 +1,5 @@
 import Repository from "./Repository.js";
-import { descriptionOfProjects } from "./projects-more-data.js";
+import { dataOfProjects } from "./data.js";
 
 const getRepositoriesFromGitHub = async (): Promise<any> => {
   const URL: string = "https://api.github.com/users/FuturoDevGalvao/repos";
@@ -53,11 +53,10 @@ const filterRepositories = (repositories: object[]): object[] => {
 const createRepository = async (repository: any): Promise<Repository> => {
   const lenguagesOfRepository = await getLenguagesOfRepositories(repository);
 
-  const description = descriptionOfProjects[repository.name as string]
+  const description = dataOfProjects[repository.name as string]
     .description as string;
 
-  const urlLive = descriptionOfProjects[repository.name as string]
-    .urlLive as string;
+  const urlLive = dataOfProjects[repository.name as string].urlLive as string;
 
   return new Repository(
     repository.name,
@@ -73,7 +72,6 @@ const createRepository = async (repository: any): Promise<Repository> => {
 export const saveRepositoriesInLocalStorage = async (): Promise<void> => {
   try {
     const data = await getRepositoriesFromGitHub();
-    console.log(data);
 
     const dataFiltred = filterRepositories(data);
 
@@ -84,8 +82,6 @@ export const saveRepositoriesInLocalStorage = async (): Promise<void> => {
 
     // Usando Promise.all para aguardar todas as promessas serem resolvidas
     const repositories = await Promise.all(repositoryPromises);
-
-    console.log(repositories);
 
     localStorage.clear();
 

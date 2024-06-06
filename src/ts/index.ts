@@ -8,8 +8,7 @@ const localStorageIsEmpty = (): boolean => {
 const getRepositoriesFromLocalStorage = (): Repository[] | null => {
   const repositories: Repository[] = [];
 
-  const repositoriesInStringFormat: string =
-    localStorage.getItem("repositories");
+  const repositoriesInStringFormat: string = localStorage.getItem("repositories");
 
   const repositoriesInJsonFormat = JSON.parse(repositoriesInStringFormat);
 
@@ -40,8 +39,7 @@ const createRepositoriesDOM = (): void => {
         </div>`
       );
 
-      const projectsList: HTMLElement =
-        document.querySelector(".projects-list");
+      const projectsList: HTMLElement = document.querySelector(".projects-list");
       projectsList.innerHTML = "";
       repositoriesDOM.forEach((repos) => (projectsList.innerHTML += repos));
       addListenerInProjectDOMElement();
@@ -64,10 +62,7 @@ const addListenerInProjectDOMElement = () => {
     project.addEventListener("click", (event) => {
       const projectClicked = event.currentTarget as HTMLElement;
 
-      const nameOfProject = projectClicked
-        .querySelector(".header-project")
-        .textContent?.trim()
-        .slice(2);
+      const nameOfProject = projectClicked.querySelector(".header-project").textContent?.trim().slice(2);
 
       const repository = getRepositoryFromName(nameOfProject);
       showPreviewOfRepositoryClicked(repository);
@@ -75,14 +70,12 @@ const addListenerInProjectDOMElement = () => {
   });
 };
 
-const getDescriptionOfProjectDOMElement = (nameOfRepository: string) => {
+const getDescriptionOfProjectDOM = (nameOfRepository: string) => {
   const projects = document.querySelectorAll(".project");
 
   return Array.from(projects)
     .find((p) => {
-      const nameOfProject = p
-        .querySelector(".header-project")
-        .querySelector("h2").textContent;
+      const nameOfProject = p.querySelector(".header-project").querySelector("h2").textContent;
 
       return nameOfProject.slice(2) === nameOfRepository;
     })
@@ -101,15 +94,14 @@ const getSrcOfImgBasedOfLenguage = (lenguage: string): string => {
   return lenguages[lenguage];
 };
 
-const showPreviewOfRepositoryClicked = (repository: Repository) => {
-  const projectPreview: HTMLElement =
-    document.querySelector(".project-preview");
+const getProjectPreviewElements = () => {
+  const projectPreview: HTMLElement = document.querySelector(".project-preview");
 
   projectPreview.classList.remove("project-preview-empty");
 
-  const nameOfprojectInProjectPreview: HTMLElement = projectPreview
-    .querySelector(".header-project-preview")
-    .querySelector("#name");
+  const headerProjectPreview = projectPreview.querySelector(".header-project-preview");
+
+  const nameOfprojectInProjectPreview: HTMLElement = headerProjectPreview.querySelector("#name");
 
   const descriptionOfProjectInProjectPreview: HTMLElement = projectPreview
     .querySelector(".body-project-preview")
@@ -123,15 +115,34 @@ const showPreviewOfRepositoryClicked = (repository: Repository) => {
     .querySelector(".body-project-preview")
     .querySelector(".links");
 
-  const urlLiveInProjectPreview: any =
-    linksOfProjectInProjectPreview.querySelector("#url-live");
+  const urlLiveInProjectPreview: any = linksOfProjectInProjectPreview.querySelector("#url-live");
 
-  const urlRepositoryInProjectPreview: any =
-    linksOfProjectInProjectPreview.querySelector("#url-repository");
+  const urlRepositoryInProjectPreview: any = linksOfProjectInProjectPreview.querySelector("#url-repository");
+
+  return {
+    projectPreview,
+    headerProjectPreview,
+    nameOfprojectInProjectPreview,
+    descriptionOfProjectInProjectPreview,
+    lenguagesOfProjectInProjectPreview,
+    urlLiveInProjectPreview,
+    urlRepositoryInProjectPreview,
+  };
+};
+
+const showPreviewOfRepositoryClicked = (repository: Repository) => {
+  const {
+    projectPreview,
+    headerProjectPreview,
+    nameOfprojectInProjectPreview,
+    descriptionOfProjectInProjectPreview,
+    lenguagesOfProjectInProjectPreview,
+    urlLiveInProjectPreview,
+    urlRepositoryInProjectPreview,
+  } = getProjectPreviewElements();
 
   nameOfprojectInProjectPreview.textContent = repository.getName();
-  descriptionOfProjectInProjectPreview.innerHTML =
-    getDescriptionOfProjectDOMElement(repository.getName());
+  descriptionOfProjectInProjectPreview.innerHTML = getDescriptionOfProjectDOM(repository.getName());
 
   lenguagesOfProjectInProjectPreview.innerHTML = "";
   repository
@@ -139,11 +150,13 @@ const showPreviewOfRepositoryClicked = (repository: Repository) => {
     .map((l) => `<li><img src="${getSrcOfImgBasedOfLenguage(l)}" /></li>`)
     .forEach((l) => (lenguagesOfProjectInProjectPreview.innerHTML += l));
 
-  urlLiveInProjectPreview.href =
-    repository.getUrlLive() === "" ? "#" : repository.getUrlLive();
+  urlLiveInProjectPreview.href = repository.getUrlLive() === "" ? "#" : repository.getUrlLive();
   urlRepositoryInProjectPreview.href = repository.getUrlRepository();
 
   projectPreview.classList.remove("project-preview-empty");
+  (
+    headerProjectPreview as HTMLElement
+  ).style.backgroundImage = `linear-gradient(rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.8)), url("../../assets/${repository.getName()}.png")`;
 };
 
 const showBtnBackToTop = () => {

@@ -1,4 +1,4 @@
-export const descriptionOfProjects = {
+export const dataOfProjects = {
     "calculadora-de-notas-aw": {
         description: "Projeto web que consiste em um calculadora de médias aritméticas e ponderadas. Considera uma média mínima de 60 para informe da situação do aluno.",
         urlLive: "",
