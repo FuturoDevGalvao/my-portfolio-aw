@@ -169,7 +169,7 @@ const showBtnBackToTop = () => {
   }
 };
 
-window.onload = async () => {
+const addListenerInBtnToAboutMe = () => {
   const btnToAboutMe = document.getElementById("btn-to-about-me");
 
   btnToAboutMe?.addEventListener("mouseover", () => {
@@ -179,11 +179,22 @@ window.onload = async () => {
   btnToAboutMe?.addEventListener("mouseout", () => {
     btnToAboutMe.classList.add("btn-to-about-me-floating");
   });
+};
 
-  window.addEventListener("scroll", showBtnBackToTop);
+const preventEventDefaulOfLinks = () => {
+  document.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", function (event) {
+      if (!this.getAttribute("href") || this.getAttribute("href") === "#") {
+        event.preventDefault();
+      }
+    });
+  });
+};
 
+window.onload = async () => {
   if (localStorageIsEmpty()) await saveRepositoriesInLocalStorage();
-
-  showBtnBackToTop();
   createRepositoriesDOM();
+  preventEventDefaulOfLinks();
+  window.addEventListener("scroll", showBtnBackToTop);
+  addListenerInBtnToAboutMe();
 };

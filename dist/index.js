@@ -130,7 +130,7 @@ const showBtnBackToTop = () => {
         btnBackToTop.classList.remove("show-btn-back-to-top");
     }
 };
-window.onload = () => __awaiter(void 0, void 0, void 0, function* () {
+const addListenerInBtnToAboutMe = () => {
     const btnToAboutMe = document.getElementById("btn-to-about-me");
     btnToAboutMe === null || btnToAboutMe === void 0 ? void 0 : btnToAboutMe.addEventListener("mouseover", () => {
         btnToAboutMe.classList.remove("btn-to-about-me-floating");
@@ -138,9 +138,21 @@ window.onload = () => __awaiter(void 0, void 0, void 0, function* () {
     btnToAboutMe === null || btnToAboutMe === void 0 ? void 0 : btnToAboutMe.addEventListener("mouseout", () => {
         btnToAboutMe.classList.add("btn-to-about-me-floating");
     });
-    window.addEventListener("scroll", showBtnBackToTop);
+};
+const preventEventDefaulOfLinks = () => {
+    document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", function (event) {
+            if (!this.getAttribute("href") || this.getAttribute("href") === "#") {
+                event.preventDefault();
+            }
+        });
+    });
+};
+window.onload = () => __awaiter(void 0, void 0, void 0, function* () {
     if (localStorageIsEmpty())
         yield saveRepositoriesInLocalStorage();
-    showBtnBackToTop();
     createRepositoriesDOM();
+    preventEventDefaulOfLinks();
+    window.addEventListener("scroll", showBtnBackToTop);
+    addListenerInBtnToAboutMe();
 });
